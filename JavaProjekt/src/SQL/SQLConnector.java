@@ -12,7 +12,7 @@ public class SQLConnector {
     static final String USER = "root";
     static final String PASS = "";
 
-    private SQLResult GetSQLResult(String query, QueryType queryType){
+    private static SQLResult GetSQLResult(String query, QueryType queryType){
         Connection con = null;
         Statement stmt = null;
 
@@ -98,10 +98,10 @@ public class SQLConnector {
         }
     }
 
-    public boolean CheckIfUserExist(String nick, String password) {
+    public static boolean CheckIfUserExist(String nick, String password) {
         String sql = String.format("SELECT * FROM users WHERE NICK= '%s' and PASSWORD= '%s';", nick, password);
         SQLResult rs = GetSQLResult(sql, QueryType.Select);
-        return rs.status == SQL_Status.QueryPass;
+        return rs.resultList.size()>0;
     }
 
     public String GetRoomName(Integer roomId){
