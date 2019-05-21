@@ -54,6 +54,9 @@ public class LoginPanel extends JFrame{
     private void LogIn(String nick, String password){
         GlobalVariables.userID = SQLConnector.GetUserID(nick, password);
         GlobalVariables.userNick = nick;
+        MainPanel mainPanel = new MainPanel();
+        mainPanel.setVisible(true);
+        setVisible(false);
     }
 
 }

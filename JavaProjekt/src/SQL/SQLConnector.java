@@ -105,13 +105,19 @@ public class SQLConnector {
         return rs.resultList.size()>0;
     }
 
-    public String GetRoomName(Integer roomId){
+    public static String GetRoomName(Integer roomId){
         String sql = String.format("SELECT name FROM rooms WHERE ID_ROOM= '%s';", roomId.toString());
         SQLResult rs = GetSQLResult(sql, QueryType.Select);
 
         //get 1st element of 1st row
         String name = rs.resultList.get(0).get(0);
         return name;
+    }
+    public static SQLResult GetUserRooms(Integer userId){
+        String sql = String.format("SELECT m.ID_ROOM, r.NAME FROM roommembers as m, rooms as r WHERE m.ID_ROOM=r.ID_ROOM AND m.ID_USER=%s;", userId.toString());
+        SQLResult rs = GetSQLResult(sql, QueryType.Select);
+
+        return rs;
     }
     public static SQLResult GetUser(Integer userid){
         String sql = String.format("SELECT NICK, AGE FROM users WHERE ID_USER= '%s';", userid.toString());
@@ -132,7 +138,7 @@ public class SQLConnector {
         return rs;
     }
     public static SQLResult GetMessages(Integer roomId, Integer idGreaterThan){
-        String sql = String.format("SELECT ID_USER, TEXT FROM messages WHERE ID_ROOM= %s AND ID_MESSAGE GREATER THAN %s;", roomId.toString(), idGreaterThan.toString());
+        String sql = String.format("SELECT ID_USER, TEXT, ID_MESSAGE FROM messages WHERE ID_ROOM= %s AND ID_MESSAGE GREATER THAN %s;", roomId.toString(), idGreaterThan.toString());
         SQLResult rs = GetSQLResult(sql, QueryType.Select);
 
         return rs;
