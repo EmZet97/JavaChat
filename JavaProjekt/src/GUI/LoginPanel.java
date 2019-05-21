@@ -42,17 +42,18 @@ public class LoginPanel extends JFrame{
         boolean exist = SQLConnector.CheckIfUserExist(nick, password);
         String text = new String();
         if(exist)
+        {
+            LogIn(nick, password);
             text = "No elo";
+        }
         else
             text = "Incorrect nick or password";
         ErrorLabel.setText(text);
     }
 
     private void LogIn(String nick, String password){
-        SQLResult res = SQLConnector.GetUserID(nick, password);
+        GlobalVariables.userID = SQLConnector.GetUserID(nick, password);
         GlobalVariables.userNick = nick;
-        GlobalVariables.userID = Integer.parseInt(res.resultList.get(0).get(0));
-
     }
 
 }
