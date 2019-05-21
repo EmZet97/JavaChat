@@ -101,6 +101,7 @@ public class SQLConnector {
     public static boolean CheckIfUserExist(String nick, String password) {
         String sql = String.format("SELECT * FROM users WHERE NICK= '%s' and PASSWORD= '%s';", nick, password);
         SQLResult rs = GetSQLResult(sql, QueryType.Select);
+
         return rs.resultList.size()>0;
     }
 
@@ -118,12 +119,22 @@ public class SQLConnector {
 
         return rs;
     }
+    public static SQLResult GetUserID(String nick, String password){
+        String sql = String.format("SELECT * FROM users WHERE NICK= '%s' and PASSWORD= '%s';", nick, password);
+        SQLResult rs = GetSQLResult(sql, QueryType.Select);
+
+        return rs;
+    }
     public SQLResult GetRoomMembers(Integer roomId){
         String sql = String.format("SELECT * FROM roommembers WHERE ID_ROOMMEMBER= '%s';", roomId.toString());
         SQLResult rs = GetSQLResult(sql, QueryType.Select);
 
-        //get 1st element of 1st row
-        String name = rs.resultList.get(0).get(0);
+        return rs;
+    }
+    public SQLResult GetMessages(Integer roomId, Integer idGreaterThan){
+        String sql = String.format("SELECT ID_USER, TEXT FROM messages WHERE ID_ROOM= %s AND ID_MESSAGE GREATER THAN %s;", roomId.toString(), idGreaterThan.toString());
+        SQLResult rs = GetSQLResult(sql, QueryType.Select);
+
         return rs;
     }
     public boolean AddNewRoomMember(Integer roomId, Integer userID){
@@ -132,4 +143,23 @@ public class SQLConnector {
 
         return rs.status == SQL_Status.QueryPass;
     }
+    public boolean AddNewRoom(String name, Integer ownerID){
+        String sql = String.format("INSERT INTO rooms (NAME, ID_OWNER) VALUES (%s, %s);", name, ownerID.toString());
+        SQLResult rs = GetSQLResult(sql, QueryType.Insert);
+
+        return rs.status == SQL_Status.QueryPass;
+    }
+    public boolean AddNewUser(String nick, Integer age, String password){
+        String sql = String.format("INSERT INTO users (NICK, AGE, PASSWORD) VALUES (%s, %s, %s);", nick, age.toString(), password);
+        SQLResult rs = GetSQLResult(sql, QueryType.Insert);
+
+        return rs.status == SQL_Status.QueryPass;
+    }
+    public boolean SendMessage(Integer roomId, Integer userId, String text){
+        String sql = String.format("INSERT INTO messages (ID_ROOM, ID_USER, TEXT) VALUES (%s, %s, %s);", roomId.toString(), userId.toString(), text);
+        SQLResult rs = GetSQLResult(sql, QueryType.Insert);
+
+        return rs.status == SQL_Status.QueryPass;
+    }
+
 }
