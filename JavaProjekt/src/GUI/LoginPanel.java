@@ -18,6 +18,7 @@ public class LoginPanel extends JFrame{
     private JPasswordField passwordField;
     private JTextField loginField;
     private JLabel ErrorLabel;
+    private JButton regButton;
 
     public  LoginPanel(){
         setTitle("Login Panel");
@@ -34,6 +35,14 @@ public class LoginPanel extends JFrame{
         });
 
 
+        regButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                RegisterPanel registerPanel = new RegisterPanel();
+                registerPanel.setVisible(true);
+                setVisible(false);
+            }
+        });
     }
 
     private void TryLogin(){
