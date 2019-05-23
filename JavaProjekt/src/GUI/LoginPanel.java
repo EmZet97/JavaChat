@@ -41,6 +41,7 @@ public class LoginPanel extends JFrame{
                 RegisterPanel registerPanel = new RegisterPanel();
                 registerPanel.setVisible(true);
                 setVisible(false);
+                dispose();
             }
         });
     }
@@ -66,6 +67,7 @@ public class LoginPanel extends JFrame{
         MainPanel mainPanel = new MainPanel();
         mainPanel.setVisible(true);
         setVisible(false);
+        dispose();
     }
 
 }

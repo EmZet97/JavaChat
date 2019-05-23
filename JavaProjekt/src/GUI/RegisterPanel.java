@@ -1,6 +1,5 @@
 package GUI;
 
-import Globals.GlobalVariables;
 import SQL.SQLConnector;
 
 import javax.swing.*;
@@ -12,10 +11,12 @@ public class RegisterPanel extends JFrame{
     private JPasswordField passwordField;
     private JTextField usernameField;
     private JPanel mpanel;
-    private JButton create_new_account;
-    private JRadioButton visibility_of_password;
-    private JLabel mistake_label;
+    private JButton OKButton;
+    private JRadioButton SeeRadioButton;
+    private JLabel errorLabel;
     private JTextField ageField;
+    private JButton resetButton;
+    private JButton signInButton;
 
     public RegisterPanel() {
         setTitle("Register Panel");
@@ -23,49 +24,94 @@ public class RegisterPanel extends JFrame{
         add(panel1);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-        //check data and if all is ok create new account:
-        create_new_account.addActionListener(new ActionListener() {
+        //if user click a OK button and want to create new account:
+        OKButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String password = passwordField.getText();
-                String nickname = usernameField.getText();
-                int age = Integer.parseInt(ageField.getText());
-                mistake_label.setText("");
-
-                if(nickname.length() == 0){
-                    mistake_label.setText("nickname field is empty");
-                }
-                else if(age == 10){
-                    ageField.setText("");
-                    mistake_label.setText("Pass your age");
-                }
-                else if(SQLConnector.CheckIfLoginExist(nickname)) {
-                    mistake_label.setText("This username is not available");
-                    usernameField.setText("");
-                }
-                else if(password.length() < 8) {
-                    mistake_label.setText("Password field is too short");
-                    passwordField.setText("");
-                }
-                else{
+               if(data_is_correct()) {
                     System.out.print("Create a new user;)");
-                    SQLConnector.AddNewUser(nickname, age, password);
-
+                    SQLConnector.AddNewUser(usernameField.getText(), ageField.getText(), passwordField.getText());
+                    signInButton.isSelected();
                 }
             }
         });
 
-        //this listener enable see password
-        visibility_of_password.addActionListener(new ActionListener() {
+        //if user select a See radiobutton to see password:
+        SeeRadioButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(visibility_of_password.isSelected())
+                if(SeeRadioButton.isSelected())
                     passwordField.setEchoChar((char) 0);
                 else
                     passwordField.setEchoChar('\u25CF');
             }
         });
+
+        //this button reset all fields:
+        resetButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                errorLabel.setText("");
+                usernameField.setText("");
+                ageField.setText("");
+                passwordField.setText("");
+                if(SeeRadioButton.isSelected())
+                    SeeRadioButton.doClick();
+            }
+        });
+
+        //come back to LoginPanel:
+        signInButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                LoginPanel loginPanel = new LoginPanel();
+                loginPanel.setVisible(true);
+                setVisible(false);
+                dispose();
+            }
+        });
     }
 
+    //function check if all data is correct:
+    private boolean data_is_correct() {
+        try {
+            errorLabel.setText("");
+
+            String username = usernameField.getText();
+            if(username.isEmpty()){
+                errorLabel.setText("Username field is empty");
+                return false;
+            }
+
+            if(username.indexOf(' ') != -1){
+                errorLabel.setText("Username field can't have spaces");
+                return false;
+            }
+
+            else if(SQLConnector.CheckIfLoginExist(username)) {
+                errorLabel.setText("This username is not available");
+                usernameField.setText("");
+                return false;
+            }
+
+            else if(passwordField.getText().length() < 8) {
+                errorLabel.setText("Password field is too short");
+                passwordField.setText("");
+                return false;
+            }
+
+            int age = Integer.parseInt(ageField.getText());
+            if(age < 0 || age > 150) {
+                throw new NumberFormatException();
+            }
+
+            return true;
+
+        } catch(NumberFormatException | NullPointerException exc) {
+            ageField.setText("");
+            errorLabel.setText("Pass your age");
+            return false;
+        }
+    }
 }
 

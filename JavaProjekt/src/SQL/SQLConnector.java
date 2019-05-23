@@ -162,8 +162,8 @@ public class SQLConnector {
 
         return rs.status == SQL_Status.QueryPass;
     }
-    public static boolean AddNewUser(String nick, Integer age, String password){
-        String sql = String.format("INSERT INTO users (NICK, AGE, PASSWORD) VALUES ('%s', '%s', '%s');", nick, age.toString(), password);
+    public static boolean AddNewUser(String nick, String age, String password){
+        String sql = String.format("INSERT INTO users (NICK, AGE, PASSWORD) VALUES ('%s', '%s', '%s');", nick, age, password);
         SQLResult rs = GetSQLResult(sql, QueryType.Insert);
 
         return rs.status == SQL_Status.QueryPass;

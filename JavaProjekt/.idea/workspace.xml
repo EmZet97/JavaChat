@@ -3,6 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="b8fbbb29-0953-4e28-af96-888da3a226c7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaProjekt/GUI/RegisterPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaProjekt/GUI/RegisterPanel$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaProjekt/GUI/RegisterPanel$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaProjekt/GUI/RegisterPanel$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaProjekt/GUI/RegisterPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaProjekt/GUI/RegisterPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/LoginPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/LoginPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/RegisterPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/RegisterPanel.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/RegisterPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/RegisterPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SQL/SQLConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SQL/SQLConnector.java" afterDir="false" />
@@ -31,8 +35,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GUI/LoginPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="43" column="13" lean-forward="true" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
+            <state relative-caret-position="221">
+              <caret line="60" column="16" lean-forward="true" selection-start-line="60" selection-start-column="16" selection-end-line="60" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -40,11 +44,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GUI/RegisterPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="45" column="48" selection-start-line="45" selection-start-column="48" selection-end-line="45" selection-end-column="48" />
+            <state relative-caret-position="737">
+              <caret line="62" column="10" lean-forward="true" selection-start-line="62" selection-start-column="10" selection-end-line="62" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -55,8 +59,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SQL/SQLConnector.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
-              <caret line="153" column="118" lean-forward="true" selection-start-line="153" selection-start-column="118" selection-end-line="153" selection-end-column="118" />
+            <state relative-caret-position="250">
+              <caret line="163" column="5" lean-forward="true" selection-start-line="163" selection-start-column="5" selection-end-line="163" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#GetSQLResult#0;class#SQLConnector#0" />
@@ -68,6 +72,27 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GUI/RegisterPanel.form">
           <provider selected="true" editor-type-id="ui-designer" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Globals/GlobalVariables.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="39" selection-start-line="6" selection-start-column="39" selection-end-line="6" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/GUI/MainPanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="30" column="50" selection-start-line="30" selection-start-column="50" selection-end-line="30" selection-end-column="50" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -104,19 +129,19 @@
         <option value="$PROJECT_DIR$/src/GUI/MainPanel.form" />
         <option value="$PROJECT_DIR$/src/GUI/MainPanel.java" />
         <option value="$PROJECT_DIR$/src/Room/RoomForTwoBuilder.java" />
-        <option value="$PROJECT_DIR$/src/GUI/LoginPanel.java" />
         <option value="$PROJECT_DIR$/src/Messages/Message.java" />
         <option value="$PROJECT_DIR$/src/Messages/MessageManager.java" />
         <option value="$PROJECT_DIR$/src/Room/Room.java" />
         <option value="$PROJECT_DIR$/src/Messages/MessageManagerInterface.java" />
-        <option value="$PROJECT_DIR$/src/GUI/RegisterPanel.form" />
         <option value="$PROJECT_DIR$/src/SQL/SQLConnector.java" />
         <option value="$PROJECT_DIR$/src/GUI/RegisterPanel.java" />
+        <option value="$PROJECT_DIR$/src/GUI/LoginPanel.java" />
+        <option value="$PROJECT_DIR$/src/GUI/RegisterPanel.form" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-68" />
+    <option name="x" value="-69" />
     <option name="width" value="975" />
     <option name="height" value="1050" />
   </component>
@@ -148,6 +173,12 @@
               <item name="JavaProjekt" type="b2602c69:ProjectViewProjectNode" />
               <item name="JavaProjekt" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JavaProjekt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JavaProjekt" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Globals" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="JavaProjekt" type="b2602c69:ProjectViewProjectNode" />
@@ -270,8 +301,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.6536913" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15570469" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -280,7 +312,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.25637394" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.25637394" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -342,13 +374,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Globals/GlobalVariables.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="39" selection-start-line="6" selection-start-column="39" selection-end-line="6" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-11.0.1/lib/src.zip!/java.desktop/javax/swing/JButton.java" />
     <entry file="file://$PROJECT_DIR$/src/Messages/MessageManager.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -368,16 +393,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="18" column="29" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/MainPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="30" column="50" selection-start-line="30" selection-start-column="50" selection-end-line="30" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -449,16 +464,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/LoginPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="60" column="16" lean-forward="true" selection-start-line="60" selection-start-column="16" selection-end-line="60" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI/LoginPanel.form">
       <provider selected="true" editor-type-id="ui-designer" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/RegisterPanel.form">
-      <provider selected="true" editor-type-id="ui-designer" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/LoginPanel.java">
+    <entry file="file://$PROJECT_DIR$/src/GUI/RegisterPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="43" column="13" lean-forward="true" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
+        <state relative-caret-position="737">
+          <caret line="62" column="10" lean-forward="true" selection-start-line="62" selection-start-column="10" selection-end-line="62" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -467,8 +489,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/SQL/SQLConnector.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="153" column="118" lean-forward="true" selection-start-line="153" selection-start-column="118" selection-end-line="153" selection-end-column="118" />
+        <state relative-caret-position="250">
+          <caret line="163" column="5" lean-forward="true" selection-start-line="163" selection-start-column="5" selection-end-line="163" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#GetSQLResult#0;class#SQLConnector#0" />
@@ -476,10 +498,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/RegisterPanel.java">
+    <entry file="file://$PROJECT_DIR$/src/GUI/RegisterPanel.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Globals/GlobalVariables.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="45" column="48" selection-start-line="45" selection-start-column="48" selection-end-line="45" selection-end-column="48" />
+        <state relative-caret-position="102">
+          <caret line="6" column="39" selection-start-line="6" selection-start-column="39" selection-end-line="6" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/MainPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="30" column="50" selection-start-line="30" selection-start-column="50" selection-end-line="30" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
