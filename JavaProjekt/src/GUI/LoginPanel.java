@@ -70,4 +70,11 @@ public class LoginPanel extends JFrame{
         dispose();
     }
 
+    void SetLoginField(String login){
+        loginField.setText(login);
+    }
+
+    void SetErrorLabel(String message) {
+        ErrorLabel.setText(message);
+    }
 }

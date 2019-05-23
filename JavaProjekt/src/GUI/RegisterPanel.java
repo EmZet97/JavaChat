@@ -29,9 +29,14 @@ public class RegisterPanel extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                if(data_is_correct()) {
-                    System.out.print("Create a new user;)");
-                    SQLConnector.AddNewUser(usernameField.getText(), ageField.getText(), passwordField.getText());
-                    signInButton.isSelected();
+                   //System.out.print("Create a new user;)");
+                   SQLConnector.AddNewUser(usernameField.getText(), ageField.getText(), passwordField.getText());
+                   LoginPanel loginPanel = new LoginPanel();
+                   loginPanel.setVisible(true);
+                   loginPanel.SetLoginField(usernameField.getText());
+                   loginPanel.SetErrorLabel("You create a account! Now you can login");
+                   setVisible(false);
+                   dispose();
                 }
             }
         });
