@@ -19,6 +19,8 @@ public class LoginPanel extends JFrame{
     private JTextField loginField;
     private JLabel ErrorLabel;
 
+    private boolean loginProcess = false;
+
     public  LoginPanel(){
         setTitle("Login Panel");
         setSize(600,500);
@@ -37,18 +39,29 @@ public class LoginPanel extends JFrame{
     }
 
     private void TryLogin(){
-        String nick = loginField.getText();
-        String password = passwordField.getText();
-        boolean exist = SQLConnector.CheckIfUserExist(nick, password);
-        String text = new String();
-        if(exist)
-        {
-            LogIn(nick, password);
-            text = "No elo";
-        }
-        else
-            text = "Incorrect nick or password";
-        ErrorLabel.setText(text);
+        if(!loginProcess)
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                loginProcess = true;
+                if(SQLConnector.CheckConnection()) {
+                    String nick = loginField.getText();
+                    String password = passwordField.getText();
+                    boolean exist = SQLConnector.CheckIfUserExist(nick, password);
+                    String text = new String();
+                    if (exist) {
+                        LogIn(nick, password);
+                        text = "No elo";
+                    } else
+                        text = "Incorrect nick or password";
+                    ErrorLabel.setText(text);
+                }
+                else {
+                    ErrorLabel.setText("Connection problem");
+                }
+                loginProcess = false;
+            }
+        }).start();
     }
 
     private void LogIn(String nick, String password){
