@@ -1,8 +1,7 @@
 package Room;
 
-import Globals.GlobalVariables;
-import SQL.SQLConnector;
-import SQL.SQLResult;
+import Messages.MessageManager;
+import Messages.MessageManagerInterface;
 
 import java.util.List;
 
@@ -12,8 +11,7 @@ public class Room {
     public Integer roomId;
     public List<Integer> usersIDs;
     public List<String> usersNames;
-    public Integer lastMessageID;
-    public String messages;
+    private MessageManager messageManager;
 
     public Room(RoomType roomtype, String name, Integer roomId){
         this.type = roomtype;
@@ -25,11 +23,11 @@ public class Room {
         this.usersNames.add(userName);
     }
     public void RefreshRoom(){
-        SQLResult res = SQLConnector.GetMessages(GlobalVariables.activeRoomID, lastMessageID);
+        //SQLResult res = SQLConnector.GetMessages(GlobalVariables.activeRoomID, lastMessageID);
 
-        for(int i = 0 ; i < res.resultList.size(); i++){
-            messages+= res.resultList.get(i).get(0) + ": " + res.resultList.get(i).get(1) + "\n";
-            lastMessageID = Integer.parseInt(res.resultList.get(i).get(2));
-        }
+        //for(int i = 0 ; i < res.resultList.size(); i++){
+            //messages+= res.resultList.get(i).get(0) + ": " + res.resultList.get(i).get(1) + "\n";
+            //lastMessageID = Integer.parseInt(res.resultList.get(i).get(2));
+        //}
     }
 }
