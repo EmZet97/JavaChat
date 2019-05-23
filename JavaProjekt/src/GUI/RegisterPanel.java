@@ -1,5 +1,8 @@
 package GUI;
 
+import Globals.GlobalVariables;
+import SQL.SQLConnector;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,6 +15,7 @@ public class RegisterPanel extends JFrame{
     private JButton create_new_account;
     private JRadioButton visibility_of_password;
     private JLabel mistake_label;
+    private JTextField ageField;
 
     public RegisterPanel() {
         setTitle("Register Panel");
@@ -23,20 +27,30 @@ public class RegisterPanel extends JFrame{
         create_new_account.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                char[] password = passwordField.getPassword();
+                String password = passwordField.getText();
                 String nickname = usernameField.getText();
-                mistake_label.setText(" ");
+                int age = Integer.parseInt(ageField.getText());
+                mistake_label.setText("");
 
                 if(nickname.length() == 0){
                     mistake_label.setText("nickname field is empty");
                 }
-                else if(password.length < 8) {
+                else if(age == 10){
+                    ageField.setText("");
+                    mistake_label.setText("Pass your age");
+                }
+                else if(SQLConnector.CheckIfLoginExist(nickname)) {
+                    mistake_label.setText("This username is not available");
+                    usernameField.setText("");
+                }
+                else if(password.length() < 8) {
                     mistake_label.setText("Password field is too short");
                     passwordField.setText("");
                 }
                 else{
-                    //connect with sql
-                    System.out.print("Know i can connect with server");
+                    System.out.print("Create a new user;)");
+                    SQLConnector.AddNewUser(nickname, age, password);
+
                 }
             }
         });
@@ -52,5 +66,6 @@ public class RegisterPanel extends JFrame{
             }
         });
     }
+
 }
 
