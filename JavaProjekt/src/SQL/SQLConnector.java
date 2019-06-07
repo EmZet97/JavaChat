@@ -107,6 +107,13 @@ public class SQLConnector {
         return rs.resultList.size()>0;
     }
 
+    public static boolean CheckIfLoginExist(String nick) {
+        String sql = String.format("SELECT * FROM users WHERE NICK= '%s';", nick);
+        SQLResult rs = GetSQLResult(sql, QueryType.Select);
+
+        return rs.resultList.size()>0;
+    }
+
     public static boolean CheckConnection(){
         String sql = String.format("SELECT * FROM users WHERE ID_USER= %s;", 1);
         SQLResult rs = GetSQLResult(sql, QueryType.Select);
