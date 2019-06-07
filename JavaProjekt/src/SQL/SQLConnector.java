@@ -72,8 +72,10 @@ public class SQLConnector {
 
         }catch(SQLException se){
             //Handle errors for JDBC
+
             se.printStackTrace();
             r.status = SQL_Status.ConnectionError;
+            System.out.println("Bład polaczenia");
             //return r;
         }catch(Exception e){
             //Handle errors for Class.forName
@@ -112,6 +114,13 @@ public class SQLConnector {
         return rs.resultList.size()>0;
     }
 
+    public static boolean CheckConnection(){
+        String sql = String.format("SELECT * FROM users WHERE ID_USER= %s;", 1);
+        SQLResult rs = GetSQLResult(sql, QueryType.Select);
+
+        return rs.status==SQL_Status.QueryPass;
+    }
+
     public static String GetRoomName(Integer roomId){
         String sql = String.format("SELECT name FROM rooms WHERE ID_ROOM= '%s';", roomId.toString());
         SQLResult rs = GetSQLResult(sql, QueryType.Select);
@@ -138,14 +147,30 @@ public class SQLConnector {
 
         return Integer.parseInt(rs.resultList.get(0).get(0));
     }
-    public static SQLResult GetRoomMembers(Integer roomId){
-        String sql = String.format("SELECT ID_USER FROM roommembers WHERE ID_ROOMMEMBER= '%s';", roomId.toString());
+
+    public static SQLResult GetRoomMembersIDs(Integer roomId){
+        String sql = String.format("SELECT u.ID_USER FROM rooms AS r, roommembers AS m, users AS u WHERE u.ID_USER=m.ID_USER AND m.ID_ROOM=r.ID_ROOM AND r.ID_ROOM= '%s';", roomId.toString());
         SQLResult rs = GetSQLResult(sql, QueryType.Select);
 
         return rs;
     }
+
+    public static SQLResult GetRoomMembers(Integer roomId){
+        String sql = String.format("SELECT u.ID_USER, u.NICK FROM rooms AS r, roommembers AS m, users AS u WHERE u.ID_USER=m.ID_USER AND m.ID_ROOM=r.ID_ROOM AND r.ID_ROOM= '%s';", roomId.toString());
+        SQLResult rs = GetSQLResult(sql, QueryType.Select);
+
+        return rs;
+    }
+
+    public static SQLResult GetRoomMembersNames(Integer roomId){
+        String sql = String.format("SELECT u.NICK FROM rooms AS r, roommembers AS m, users AS u WHERE u.ID_USER=m.ID_USER AND m.ID_ROOM=r.ID_ROOM AND r.ID_ROOM= '%s';", roomId.toString());
+        SQLResult rs = GetSQLResult(sql, QueryType.Select);
+
+        return rs;
+    }
+
     public static SQLResult GetMessages(Integer roomId, Integer idGreaterThan){
-        String sql = String.format("SELECT ID_USER, TEXT, ID_MESSAGE FROM messages WHERE ID_ROOM= %s AND ID_MESSAGE GREATER THAN %s;", roomId.toString(), idGreaterThan.toString());
+        String sql = String.format("SELECT m.ID_USER, u.NICK, m.ID_MESSAGE, m.TEXT FROM messages m, users u WHERE m.ID_USER=u.ID_USER AND m.ID_ROOM= %s AND m.ID_MESSAGE > %s;", roomId.toString(), idGreaterThan.toString());
         SQLResult rs = GetSQLResult(sql, QueryType.Select);
 
         return rs;
@@ -162,14 +187,14 @@ public class SQLConnector {
 
         return rs.status == SQL_Status.QueryPass;
     }
-    public static boolean AddNewUser(String nick, String age, String password){
-        String sql = String.format("INSERT INTO users (NICK, AGE, PASSWORD) VALUES ('%s', '%s', '%s');", nick, age, password);
+    public static boolean AddNewUser(String nick, Integer age, String password){
+        String sql = String.format("INSERT INTO users (NICK, AGE, PASSWORD) VALUES ('%s', '%s', '%s');", nick, age.toString(), password);
         SQLResult rs = GetSQLResult(sql, QueryType.Insert);
 
         return rs.status == SQL_Status.QueryPass;
     }
     public static boolean SendMessage(Integer roomId, Integer userId, String text){
-        String sql = String.format("INSERT INTO messages (ID_ROOM, ID_USER, TEXT) VALUES ('%s', '%s', '%s');", roomId.toString(), userId.toString(), text);
+        String sql = String.format("INSERT INTO messages (ID_ROOM, ID_USER, TEXT) VALUES (%s, %s, '%s');", roomId.toString(), userId.toString(), text);
         SQLResult rs = GetSQLResult(sql, QueryType.Insert);
 
         return rs.status == SQL_Status.QueryPass;
