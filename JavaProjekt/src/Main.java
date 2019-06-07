@@ -20,5 +20,6 @@ public class Main {
         UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         LoginPanel loginPanel = new LoginPanel();
         loginPanel.setVisible(true);
+        //SQLConnector.AddNewUser("tuser", 12, "qweqwe0");
     }
 }

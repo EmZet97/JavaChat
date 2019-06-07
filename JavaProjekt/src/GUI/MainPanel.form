@@ -50,6 +50,9 @@
                   </grid>
                 </constraints>
                 <properties>
+                  <font name="Lucida Console" size="12"/>
+                  <lineWrap value="false"/>
+                  <rows value="0"/>
                   <text value=""/>
                 </properties>
               </component>
@@ -72,7 +75,11 @@
             <children>
               <component id="35a92" class="javax.swing.JTextArea" binding="MessagesTextArea">
                 <constraints/>
-                <properties/>
+                <properties>
+                  <editable value="false"/>
+                  <font name="Yu Gothic UI Semibold" size="16"/>
+                  <foreground color="-8023105"/>
+                </properties>
               </component>
             </children>
           </scrollpane>
