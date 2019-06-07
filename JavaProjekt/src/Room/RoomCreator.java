@@ -2,6 +2,7 @@ package Room;
 
 import Globals.GlobalVariables;
 import Messages.MessageManager;
+import Messages.MessageManagerBuilder;
 
 public class RoomCreator {
     private String name;
@@ -16,13 +17,14 @@ public class RoomCreator {
         Room room;
         this.name = name;
         this.id = id;
-        this.messageManager = new MessageManager(id, GlobalVariables.userID);
+        //Budowanie obiektu message manager
+        this.messageManager = new MessageManagerBuilder(id, GlobalVariables.userID).build();
 
         if(roomType == RoomType.Group){
-            room = new GroupRoom(name, messageManager,id);
+            room = new Room_Group(name, messageManager,id);
         }
         else{
-            room = new GroupRoom(name, messageManager,id);
+            room = new Room_Group(name, messageManager,id);
         }
 
         return room;

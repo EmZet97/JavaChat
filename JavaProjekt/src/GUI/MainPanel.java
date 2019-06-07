@@ -1,6 +1,7 @@
 package GUI;
 
 import Globals.GlobalVariables;
+import Messages.Message;
 import Room.Room;
 import Room.RoomCreator;
 import Room.RoomType;
@@ -9,8 +10,14 @@ import SQL.SQLResult;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class MainPanel extends JFrame {
     private JTextArea InputTextArea;
@@ -18,6 +25,8 @@ public class MainPanel extends JFrame {
     private JTextArea MessagesTextArea;
     private JPanel RoomsPanel;
     private JPanel mPanel;
+
+    private ScheduledExecutorService executor;
 
     private Room activeRoom = null;
 
@@ -39,16 +48,33 @@ public class MainPanel extends JFrame {
                     if(activeRoom!=null){
                         activeRoom.SendMessage(InputTextArea.getText());
                     }
+                    InputTextArea.setText("");
                 }
             }
         });
 
         CreateRooms();
+
+        InputTextArea.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                if(e.getKeyChar() == '\n'){
+                    //System.out.println("Enter Clicked");
+                    if(activeRoom!=null){
+                        String txt = InputTextArea.getText().replace("\n", "");
+                        activeRoom.SendMessage(txt);
+                    }
+                    InputTextArea.setText("");
+                }
+            }
+        });
     }
 
     private void CreateRooms(){
         SQLResult res = SQLConnector.GetUserRooms(GlobalVariables.userID);
         RoomsPanel.setLayout(new GridBagLayout());
+
+        //Stworzenie fabryki obiektow Room
         RoomCreator roomCreator = new RoomCreator();
         for(int i = 0 ; i<res.resultList.size(); i++){
             //Room
@@ -65,10 +91,32 @@ public class MainPanel extends JFrame {
                     //System.out.println(newroom.name);
                     //newroom.SendMessage(InputTextArea.getText());
                     activeRoom = newroom;
-                    System.out.println("Active room: " + activeRoom.GetName());
+                    //System.out.println("Active room: " + activeRoom.GetName());
+                    //System.out.println(activeRoom.getMessageManager().GetMessages().size());
+                    if(executor!= null)
+                        executor.shutdown();
+                    executor = Executors.newSingleThreadScheduledExecutor();
+                    executor.scheduleAtFixedRate(new Runnable() {
+                        @Override
+                        public void run() {
+                            ShowMessages(activeRoom.getMessageManager().GetMessages());
+                        }
+                    }, 0, 500, TimeUnit.MILLISECONDS);
+                    //exec.shutdown();
+
                 }
             });
             RoomsPanel.add(newbtn);
         }
+    }
+
+    private void ShowMessages(List<Message> messages){
+        MessagesTextArea.setText("");
+        String text = "";
+        for(int i = 0 ; i<messages.size(); i++){
+            text+= messages.get(i).getIndex() + ". " + messages.get(i).getUserName() + ": " + messages.get(i).getText() + "\n";
+        }
+
+        MessagesTextArea.setText(text);
     }
 }

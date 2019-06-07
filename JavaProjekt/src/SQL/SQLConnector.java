@@ -163,7 +163,7 @@ public class SQLConnector {
     }
 
     public static SQLResult GetMessages(Integer roomId, Integer idGreaterThan){
-        String sql = String.format("SELECT ID_USER, ID_MESSAGE, TEXT FROM messages WHERE ID_ROOM= %s AND ID_MESSAGE GREATER THAN %s;", roomId.toString(), idGreaterThan.toString());
+        String sql = String.format("SELECT m.ID_USER, u.NICK, m.ID_MESSAGE, m.TEXT FROM messages m, users u WHERE m.ID_USER=u.ID_USER AND m.ID_ROOM= %s AND m.ID_MESSAGE > %s;", roomId.toString(), idGreaterThan.toString());
         SQLResult rs = GetSQLResult(sql, QueryType.Select);
 
         return rs;

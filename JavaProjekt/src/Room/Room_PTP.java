@@ -7,14 +7,14 @@ import Users.User;
 
 import java.util.List;
 
-public class Conversation implements Room {
+public class Room_PTP implements Room {
 
     private String name = "Global";
     private MessageManager messageManager = null;
     private Integer roomID = 1;
     private List<User> users;
 
-    public Conversation(String name, MessageManager messageManager, Integer roomID){
+    public Room_PTP(String name, MessageManager messageManager, Integer roomID){
 
     }
 
@@ -45,5 +45,10 @@ public class Conversation implements Room {
     @Override
     public void SendMessage(String text) {
         SQLConnector.SendMessage(roomID, GlobalVariables.userID, text);
+    }
+
+    @Override
+    public MessageManager getMessageManager() {
+        return messageManager;
     }
 }

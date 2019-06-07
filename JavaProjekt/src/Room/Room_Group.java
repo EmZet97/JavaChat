@@ -9,14 +9,14 @@ import Users.User;
 
 import java.util.List;
 
-public class GroupRoom implements Room {
+public class Room_Group implements Room {
     private String name = "Global";
-    private MessageManager messageManager = null;
+    private MessageManager messageManager;
     private Integer roomID = 1;
     private List<User> users;
 
 
-    public GroupRoom(String name, MessageManager messageManager, Integer roomID){
+    public Room_Group(String name, MessageManager messageManager, Integer roomID){
         this.name = name;
         this.messageManager = messageManager;
         this.roomID = roomID;
@@ -35,6 +35,7 @@ public class GroupRoom implements Room {
         }
     }
 
+    //Sprawdzanie czy user istnieje w pokoju
     private boolean CheckIfExist(Integer id){
         for (User u:users) {
             if(u.getId()==id)
@@ -66,5 +67,10 @@ public class GroupRoom implements Room {
     @Override
     public void SendMessage(String text) {
         SQLConnector.SendMessage(roomID, GlobalVariables.userID, text);
+    }
+
+    @Override
+    public MessageManager getMessageManager() {
+        return messageManager;
     }
 }

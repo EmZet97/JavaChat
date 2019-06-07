@@ -1,5 +1,6 @@
 package Room;
 
+import Messages.MessageManager;
 import Users.User;
 
 import java.util.List;
@@ -12,4 +13,5 @@ public interface Room {
     public String GetName();
     public Integer GetID();
     public void SendMessage(String text);
+    public MessageManager getMessageManager() ;
 }
