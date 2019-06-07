@@ -129,6 +129,23 @@ public class SQLConnector {
         String name = rs.resultList.get(0).get(0);
         return name;
     }
+
+    public static Integer GetRoomID(String roomName){
+        String sql = String.format("SELECT ID_ROOM FROM rooms WHERE name= '%s';", roomName);
+        SQLResult rs = GetSQLResult(sql, QueryType.Select);
+
+        //get 1st element of 1st row
+        Integer ID = Integer.parseInt(rs.resultList.get(0).get(0));
+        return ID;
+    }
+
+    public static Boolean CheckIfRoomExist(String roomName){
+        String sql = String.format("SELECT ID_ROOM FROM rooms WHERE name= '%s';", roomName);
+        SQLResult rs = GetSQLResult(sql, QueryType.Select);
+
+        return rs.status==SQL_Status.QueryPass && rs.resultList.size()>0;
+    }
+
     public static SQLResult GetUserRooms(Integer userId){
         String sql = String.format("SELECT m.ID_ROOM, r.NAME FROM roommembers as m, rooms as r WHERE m.ID_ROOM=r.ID_ROOM AND m.ID_USER=%s;", userId.toString());
         SQLResult rs = GetSQLResult(sql, QueryType.Select);
