@@ -30,7 +30,10 @@ public class RegisterPanel extends JFrame{
             public void actionPerformed(ActionEvent e) {
                if(data_is_correct()) {
                    //System.out.print("Create a new user;)");
-                   SQLConnector.AddNewUser(usernameField.getText(), Integer.parseInt(ageField.getText()), passwordField.getText());
+                   String nick = usernameField.getText();
+                   SQLConnector.AddNewUser(nick, Integer.parseInt(ageField.getText()), passwordField.getText());
+                   Integer id = SQLConnector.GetUserID(nick);
+                   SQLConnector.AddNewRoomMember(1, id);
                    LoginPanel loginPanel = new LoginPanel();
                    loginPanel.setVisible(true);
                    loginPanel.SetLoginField(usernameField.getText());

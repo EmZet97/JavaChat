@@ -165,6 +165,13 @@ public class SQLConnector {
         return Integer.parseInt(rs.resultList.get(0).get(0));
     }
 
+    public static Integer GetUserID(String nick){
+        String sql = String.format("SELECT ID_USER FROM users WHERE NICK= '%s';", nick);
+        SQLResult rs = GetSQLResult(sql, QueryType.Select);
+
+        return Integer.parseInt(rs.resultList.get(0).get(0));
+    }
+
     public static SQLResult GetRoomMembersIDs(Integer roomId){
         String sql = String.format("SELECT u.ID_USER FROM rooms AS r, roommembers AS m, users AS u WHERE u.ID_USER=m.ID_USER AND m.ID_ROOM=r.ID_ROOM AND r.ID_ROOM= '%s';", roomId.toString());
         SQLResult rs = GetSQLResult(sql, QueryType.Select);
@@ -198,6 +205,7 @@ public class SQLConnector {
 
         return rs.status == SQL_Status.QueryPass;
     }
+
     public static boolean AddNewRoom(String name, Integer ownerID){
         String sql = String.format("INSERT INTO rooms (NAME, ID_OWNER) VALUES ('%s', '%s');", name, ownerID.toString());
         SQLResult rs = GetSQLResult(sql, QueryType.Insert);
