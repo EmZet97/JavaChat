@@ -2,9 +2,9 @@ package GUI;
 
 import Globals.GlobalVariables;
 import Messages.Message;
-import Rooms.Room;
-import Rooms.RoomCreator;
-import Rooms.RoomType;
+import RoomPackage.Room;
+import RoomPackage.RoomCreator;
+import RoomPackage.RoomType;
 import SQL.SQLConnector;
 import SQL.SQLResult;
 
@@ -30,13 +30,13 @@ public class MainPanel extends JFrame {
     public MainPanel() {
         setTitle("Main Panel");
         setSize(600,500);
-        this.add(mPanel);
+        add(mPanel);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 
 
         SendMessageButton.addActionListener(new ActionListener() {
-
+            @Override
             public void actionPerformed(ActionEvent e) {
                 if(InputTextArea.getText() != ""){
                     //System.out.println(GlobalVariables.activeRoomID.toString());
@@ -84,7 +84,7 @@ public class MainPanel extends JFrame {
             //MessagesTextArea.setText(MessagesTextArea.getText() + "\n" + res.resultList.get(i).get(1));
             newbtn.setSize(200,50);
             newbtn.addActionListener(new ActionListener() {
-
+                @Override
                 public void actionPerformed(ActionEvent e) {
                     //System.out.println(newroom.name);
                     //newroom.SendMessage(InputTextArea.getText());
@@ -95,7 +95,7 @@ public class MainPanel extends JFrame {
                         executor.shutdown();
                     executor = Executors.newSingleThreadScheduledExecutor();
                     executor.scheduleAtFixedRate(new Runnable() {
-
+                        @Override
                         public void run() {
                             ShowMessages(activeRoom.getMessageManager().GetMessages());
                         }

@@ -1,4 +1,4 @@
-package Rooms;
+package RoomPackage;
 
 import Globals.GlobalVariables;
 import Messages.MessageManager;
@@ -22,6 +22,7 @@ public class Room_Group implements Room {
         this.roomID = roomID;
     }
 
+    @Override
     public void LoadUsers() {
         SQLResult res = SQLConnector.GetRoomMembers(this.roomID);
         for (int i=0; i<res.resultList.size(); i++){
@@ -34,6 +35,7 @@ public class Room_Group implements Room {
         }
     }
 
+    @Override
     public RoomType getRoomType() {
         return roomType;
     }
@@ -47,32 +49,32 @@ public class Room_Group implements Room {
         return false;
     }
 
-
+    @Override
     public void RefreshRoom() {
         LoadUsers();
     }
 
-
+    @Override
     public List<User> GetUsers() {
         return users;
     }
 
-
+    @Override
     public String GetName() {
         return name;
     }
 
-
+    @Override
     public Integer GetID() {
         return roomID;
     }
 
-
+    @Override
     public void SendMessage(String text) {
         SQLConnector.SendMessage(roomID, GlobalVariables.userID, text);
     }
 
-
+    @Override
     public MessageManager getMessageManager() {
         return messageManager;
     }

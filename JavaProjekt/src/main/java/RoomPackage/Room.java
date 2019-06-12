@@ -1,4 +1,4 @@
-package Rooms;
+package RoomPackage;
 
 import Messages.MessageManager;
 import Users.User;

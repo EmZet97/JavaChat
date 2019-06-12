@@ -1,4 +1,4 @@
-package Rooms;
+package RoomPackage;
 
 import Globals.GlobalVariables;
 import Messages.MessageManager;

@@ -21,12 +21,12 @@ public class RegisterPanel extends JFrame{
     public RegisterPanel() {
         setTitle("Register Panel");
         setSize(600,500);
-        this.add(panel1);
+        add(panel1);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         //if user click a OK button and want to create new account:
         OKButton.addActionListener(new ActionListener() {
-
+            @Override
             public void actionPerformed(ActionEvent e) {
                if(data_is_correct()) {
                    //System.out.print("Create a new user;)");
@@ -46,7 +46,7 @@ public class RegisterPanel extends JFrame{
 
         //if user select a See radiobutton to see password:
         SeeRadioButton.addActionListener(new ActionListener() {
-
+            @Override
             public void actionPerformed(ActionEvent e) {
                 if(SeeRadioButton.isSelected())
                     passwordField.setEchoChar((char) 0);
@@ -57,7 +57,7 @@ public class RegisterPanel extends JFrame{
 
         //this button reset all fields:
         resetButton.addActionListener(new ActionListener() {
-
+            @Override
             public void actionPerformed(ActionEvent e) {
                 errorLabel.setText("");
                 usernameField.setText("");
@@ -70,7 +70,7 @@ public class RegisterPanel extends JFrame{
 
         //come back to LoginPanel:
         signInButton.addActionListener(new ActionListener() {
-
+            @Override
             public void actionPerformed(ActionEvent e) {
                 LoginPanel loginPanel = new LoginPanel();
                 loginPanel.setVisible(true);
@@ -86,7 +86,7 @@ public class RegisterPanel extends JFrame{
             errorLabel.setText("");
 
             String username = usernameField.getText();
-            if(username == ""){
+            if(username.isEmpty()){
                 errorLabel.setText("Username field is empty");
                 return false;
             }
@@ -115,7 +115,7 @@ public class RegisterPanel extends JFrame{
 
             return true;
 
-        } catch(NumberFormatException e) {
+        } catch(NumberFormatException | NullPointerException exc) {
             ageField.setText("");
             errorLabel.setText("Pass your age");
             return false;

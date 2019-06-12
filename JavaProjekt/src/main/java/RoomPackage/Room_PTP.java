@@ -1,4 +1,4 @@
-package Rooms;
+package RoomPackage;
 
 import Globals.GlobalVariables;
 import Messages.MessageManager;
@@ -18,41 +18,41 @@ public class Room_PTP implements Room {
 
     }
 
-
+    @Override
     public void LoadUsers() {
 
     }
 
-
+    @Override
     public void RefreshRoom() {
 
     }
 
-
+    @Override
     public RoomType getRoomType() {
         return roomType;
     }
 
-
+    @Override
     public List<User> GetUsers() {
         return null;
     }
 
-
+    @Override
     public String GetName() {
         return name;
     }
 
-
+    @Override
     public Integer GetID() {
         return roomID;
     }
-
+    @Override
     public void SendMessage(String text) {
         SQLConnector.SendMessage(roomID, GlobalVariables.userID, text);
     }
 
-
+    @Override
     public MessageManager getMessageManager() {
         return messageManager;
     }
