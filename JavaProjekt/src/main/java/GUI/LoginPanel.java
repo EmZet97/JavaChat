@@ -25,7 +25,17 @@ public class LoginPanel extends JFrame{
     public  LoginPanel(){
         setTitle("Login Panel");
         setSize(600,500);
-        add(panel1);
+        boolean test = true;
+        while (test){
+            try {
+                add(panel1);
+                test = false;
+            }
+            catch (NullPointerException e){
+                test = true;
+            }
+        }
+
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 
@@ -89,5 +99,9 @@ public class LoginPanel extends JFrame{
 
     void SetErrorLabel(String message) {
         ErrorLabel.setText(message);
+    }
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
     }
 }

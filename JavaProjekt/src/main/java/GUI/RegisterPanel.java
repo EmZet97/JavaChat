@@ -21,6 +21,16 @@ public class RegisterPanel extends JFrame{
     public RegisterPanel() {
         setTitle("Register Panel");
         setSize(600,500);
+        boolean test = true;
+        /*while (test){
+            try {
+                add(panel1);
+                test = false;
+            }
+            catch (NullPointerException e){
+                test = true;
+            }
+        }*/
         add(panel1);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
