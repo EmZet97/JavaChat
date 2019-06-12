@@ -6,11 +6,11 @@ import java.util.List;
 public class SQLConnector {
     // JDBC driver name and database URL
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-    static final String DB_URL = "jdbc:mysql://localhost/test";
+    static final String DB_URL = "jdbc:mysql://remotemysql.com/HFYMhxKc9I";
 
     //  Database credentials
-    static final String USER = "root";
-    static final String PASS = "";
+    static final String USER = "HFYMhxKc9I";
+    static final String PASS = "hqCSSCAsoR";
 
     private static SQLResult GetSQLResult(String query, QueryType queryType){
         Connection con = null;
