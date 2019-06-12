@@ -22,6 +22,7 @@ public class MainPanel extends JFrame {
     private JTextArea MessagesTextArea;
     private JPanel RoomsPanel;
     private JPanel mPanel;
+    private JPanel RoomJoinPanel;
     private int period = 250;
     private ScheduledExecutorService executor;
 
