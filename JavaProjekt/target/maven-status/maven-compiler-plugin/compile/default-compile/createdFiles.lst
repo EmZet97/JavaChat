@@ -3,15 +3,12 @@ GUI\LoginPanel$1.class
 GUI\RegisterPanel$1.class
 Messages\MessageInterface.class
 Messages\MessageManagerBuilder.class
+Rooms\Room.class
 GUI\LoginPanel$3.class
-RoomPackage\Room_PTP.class
-RoomPackage\RoomCreator.class
-RoomPackage\RoomType.class
 GUI\MainPanel.class
 GUI\MainPanel$3$1.class
 SQL\SQL_Status.class
 GUI\LoginPanel.class
-RoomPackage\Room.class
 Main.class
 Users\User.class
 GUI\MainPanel$1.class
@@ -19,11 +16,13 @@ Messages\MessageManagerInterface.class
 SQL\SQLResult.class
 GUI\MainPanel$3.class
 GUI\RegisterPanel$4.class
+Rooms\Room_PTP.class
 GUI\RegisterPanel.class
 GUI\RegisterPanel$2.class
 GUI\LoginPanel$2.class
 Messages\MessageManager$1.class
-RoomPackage\Room_Group.class
+Rooms\Room_Group.class
+Rooms\RoomCreator.class
 GUI\RegisterPanel$3.class
 GUI\MainPanel$2.class
 Messages\Message.class
@@ -31,3 +30,4 @@ Messages\MessageManager.class
 Globals\GlobalVariables.class
 SQL\SQLConnector.class
 Messages\MessageFactory.class
+Rooms\RoomType.class

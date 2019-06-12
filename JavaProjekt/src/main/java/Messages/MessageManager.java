@@ -35,7 +35,7 @@ public class MessageManager implements MessageManagerInterface {
 
         ScheduledExecutorService exec = Executors.newSingleThreadScheduledExecutor();
         exec.scheduleAtFixedRate(new Runnable() {
-            @Override
+
             public void run() {
                 CheckChanges();
             }
@@ -44,22 +44,22 @@ public class MessageManager implements MessageManagerInterface {
 
     }
 
-    @Override
+
     public int GetLastMassageId() {
         return this.lastMessageId;
     }
 
-    @Override
+
     public List<Message> GetMessages() {
         return this.messages;
     }
 
-    @Override
+
     public boolean SendMessage(String message) {
         return SQLConnector.SendMessage(this.roomID, this.userID, message);
     }
 
-    @Override
+
     public void CheckChanges() {
         SQLResult res = SQLConnector.GetMessages(this.roomID, this.lastMessageId);
         if(res.status == SQL_Status.QueryPass) {

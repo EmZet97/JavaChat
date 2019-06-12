@@ -1,6 +1,5 @@
 package Messages;
 
-import java.util.Date;
 
 public class Message implements MessageInterface {
 
@@ -48,7 +47,7 @@ public class Message implements MessageInterface {
         this.date = date;
     }
 
-    @Override
+
     public Message cloneMessage() {
 
         Message messageObject = null;

@@ -1,6 +1,4 @@
 import GUI.LoginPanel;
-import SQL.SQLConnector;
-import SQL.SQLResult ;
 
 import javax.swing.*;
 
