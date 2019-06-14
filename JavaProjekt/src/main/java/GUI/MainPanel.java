@@ -32,6 +32,7 @@ public class MainPanel extends JFrame {
 
     private Room activeRoom = null;
     private int status_of_new_room = -1;
+    private Thread CheckDataThread;
 
     public MainPanel() {
         setTitle("Main Panel");
@@ -89,24 +90,33 @@ public class MainPanel extends JFrame {
         RoomJoinButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                    if (status_of_new_room == 0){
-                        SQLConnector.AddNewRoomMember(SQLConnector.GetRoomID(RoomJoinTextArea.getText()), GlobalVariables.userID);
-                        RoomsPanel.removeAll();
-                        CreateRooms();
-                        RoomJoinTextArea.setText("");
-                        InfoLabel.setText("You joined to room!");
-                    }
-                    else if (status_of_new_room == 1){
-                        SQLConnector.AddNewRoom(RoomJoinTextArea.getText(), GlobalVariables.userID);
-                        SQLConnector.AddNewRoomMember(SQLConnector.GetRoomID(RoomJoinTextArea.getText()), GlobalVariables.userID);
-                        RoomsPanel.removeAll();
-                        CreateRooms();
-                        RoomJoinTextArea.setText("");
-                        InfoLabel.setText("You created new room!");
-                    }
-                    else{
-                        InfoLabel.setText("Incorrect data");
-                    }
+                try
+                {
+                    CheckDataThread.join();
+                }
+                catch(Exception ex)
+                {
+                    System.out.println("Problem with join() in MainPanel.java!");
+                }
+
+                if (status_of_new_room == 0){
+                    SQLConnector.AddNewRoomMember(SQLConnector.GetRoomID(RoomJoinTextArea.getText()), GlobalVariables.userID);
+                    RoomsPanel.removeAll();
+                    CreateRooms();
+                    RoomJoinTextArea.setText("");
+                    InfoLabel.setText("You joined to room!");
+                }
+                else if (status_of_new_room == 1){
+                    SQLConnector.AddNewRoom(RoomJoinTextArea.getText(), GlobalVariables.userID);
+                    SQLConnector.AddNewRoomMember(SQLConnector.GetRoomID(RoomJoinTextArea.getText()), GlobalVariables.userID);
+                    RoomsPanel.removeAll();
+                    CreateRooms();
+                    RoomJoinTextArea.setText("");
+                    InfoLabel.setText("You created new room!");
+                }
+                else{
+                    InfoLabel.setText("Incorrect data");
+                }
             }
         });
     }
@@ -163,12 +173,10 @@ public class MainPanel extends JFrame {
     }
 
     private void CheckData(){
-        //najlepiej zeby to byla klasa i by u gory mozna bylo poczekac na zakonczenie tego watku bo to moze rodzic probelmy, np da sie zrobic drugi taki samy pokoj jak sie jest szynkich i watek nie zdazy sie zakonczyc
-        //takze wystraczy klasa i meotda np join DO ZROBIENIA
-        new Thread(new Runnable() {
+        CheckDataThread = new Thread(new Runnable() {
             @Override
             public void run() {
-                if(RoomJoinTextArea.getText().isEmpty()) { //sprawdz pozniej spacje!
+                if(RoomJoinTextArea.getText().isEmpty()) {
                     status_of_new_room = -1;
                     InfoLabel.setText("Join or create room");
                 }
@@ -198,7 +206,9 @@ public class MainPanel extends JFrame {
                 }
 
             }
-        }).start();
+        });
+
+        CheckDataThread.start();
     }
 
 }
