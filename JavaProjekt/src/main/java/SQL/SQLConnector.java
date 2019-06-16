@@ -28,7 +28,7 @@ public class SQLConnector {
             stmt = con.createStatement();
 
             String sql = query;
-            System.out.println(sql);
+            //System.out.println(sql);
             //set default return state
             r.status = SQL_Status.QueryPass;
 

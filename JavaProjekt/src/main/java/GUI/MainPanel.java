@@ -11,6 +11,7 @@ import SQL.SQLResult;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -27,12 +28,14 @@ public class MainPanel extends JFrame {
     private JButton RoomJoinButton;
     private JLabel RoomJoinLabel;
     private JLabel InfoLabel;
+    private JComboBox RoomPicker;
     private int period = 250;
     private ScheduledExecutorService executor;
 
     private Room activeRoom = null;
     private int status_of_new_room = -1;
     private Thread CheckDataThread;
+    private List<Room> rooms = new ArrayList<Room>();
 
     public MainPanel() {
         setTitle("Main Panel");
@@ -119,31 +122,47 @@ public class MainPanel extends JFrame {
                 }
             }
         });
+
+    }
+    private void PickRoom(Integer index){
+        activeRoom = rooms.get(index);
+        if(executor!= null)
+            executor.shutdown();
+        executor = Executors.newSingleThreadScheduledExecutor();
+        executor.scheduleAtFixedRate(new Runnable() {
+            @Override
+            public void run() {
+                ShowMessages(activeRoom.getMessageManager().GetMessages());
+            }
+        }, 0, period, TimeUnit.MILLISECONDS);
     }
 
     private void CreateRooms(){
         SQLResult res = SQLConnector.GetUserRooms(GlobalVariables.userID);
-        RoomsPanel.setLayout(new GridBagLayout());
+        GridLayout gl = new GridLayout();
+        RoomsPanel.setLayout(gl);
+
+        List<String> RoomsNamesList = new ArrayList<String>();
+
+
 
         //Stworzenie fabryki obiektow RoomPackage
         RoomCreator roomCreator = new RoomCreator();
         for(int i = 0 ; i<res.resultList.size(); i++){
             //RoomPackage
-            final Room newroom = roomCreator.Create(RoomType.Group,res.resultList.get(i).get(1), Integer.parseInt(res.resultList.get(i).get(0)));
-
+            Room newroom = roomCreator.Create(RoomType.Group,res.resultList.get(i).get(1), Integer.parseInt(res.resultList.get(i).get(0)));
+            rooms.add(newroom);
+            RoomsNamesList.add(newroom.GetName());
+            /*
             JButton newbtn = new JButton();
             newbtn.setVisible(true);
             newbtn.setText(newroom.GetName());
-            //MessagesTextArea.setText(MessagesTextArea.getText() + "\n" + res.resultList.get(i).get(1));
+
             newbtn.setSize(200,50);
             newbtn.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    //System.out.println(newroom.name);
-                    //newroom.SendMessage(InputTextArea.getText());
                     activeRoom = newroom;
-                    //System.out.println("Active room: " + activeRoom.GetName());
-                    //System.out.println(activeRoom.getMessageManager().GetMessages().size());
                     if(executor!= null)
                         executor.shutdown();
                     executor = Executors.newSingleThreadScheduledExecutor();
@@ -153,12 +172,21 @@ public class MainPanel extends JFrame {
                             ShowMessages(activeRoom.getMessageManager().GetMessages());
                         }
                     }, 0, period, TimeUnit.MILLISECONDS);
-                    //exec.shutdown();
 
                 }
-            });
-            RoomsPanel.add(newbtn);
+            });*/
+            //RoomsPanel.add(newbtn, BorderLayout.CENTER);
         }
+        String[] RoomsNames = RoomsNamesList.toArray(new String[RoomsNamesList.size()]);
+        final JComboBox<String> RoomDropDownManu = new JComboBox<String>(RoomsNames);
+        RoomDropDownManu.addActionListener (new ActionListener () {
+            public void actionPerformed(ActionEvent e) {
+                int selectedIndex = RoomDropDownManu.getSelectedIndex();
+                System.out.println(selectedIndex);
+                PickRoom(selectedIndex);
+            }
+        });
+        RoomsPanel.add(RoomDropDownManu);
     }
 
     private void ShowMessages(List<Message> messages){
