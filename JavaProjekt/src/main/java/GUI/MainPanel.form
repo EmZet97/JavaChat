@@ -121,7 +121,7 @@
                 </constraints>
                 <properties>
                   <font name="Lucida Console" size="12"/>
-                  <lineWrap value="false"/>
+                  <lineWrap value="true"/>
                   <rows value="0"/>
                   <text value=""/>
                 </properties>
@@ -149,6 +149,7 @@
                   <editable value="false"/>
                   <font name="Yu Gothic UI Semibold" size="16"/>
                   <foreground color="-8023105"/>
+                  <lineWrap value="true"/>
                   <text value="Select room"/>
                 </properties>
               </component>

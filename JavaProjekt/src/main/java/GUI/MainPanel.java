@@ -178,15 +178,15 @@ public class MainPanel extends JFrame {
             //RoomsPanel.add(newbtn, BorderLayout.CENTER);
         }
         String[] RoomsNames = RoomsNamesList.toArray(new String[RoomsNamesList.size()]);
-        final JComboBox<String> RoomDropDownManu = new JComboBox<String>(RoomsNames);
-        RoomDropDownManu.addActionListener (new ActionListener () {
+        final JComboBox<String> RoomDropDownMenu = new JComboBox<String>(RoomsNames);
+        RoomDropDownMenu.addActionListener (new ActionListener () {
             public void actionPerformed(ActionEvent e) {
-                int selectedIndex = RoomDropDownManu.getSelectedIndex();
+                int selectedIndex = RoomDropDownMenu.getSelectedIndex();
                 System.out.println(selectedIndex);
                 PickRoom(selectedIndex);
             }
         });
-        RoomsPanel.add(RoomDropDownManu);
+        RoomsPanel.add(RoomDropDownMenu);
     }
 
     private void ShowMessages(List<Message> messages){

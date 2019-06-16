@@ -41,7 +41,7 @@
                   </grid>
                 </constraints>
                 <properties>
-                  <text value="qwerty"/>
+                  <text value=""/>
                 </properties>
               </component>
               <component id="9dadf" class="javax.swing.JTextField" binding="loginField">
@@ -51,7 +51,7 @@
                   </grid>
                 </constraints>
                 <properties>
-                  <text value="Matt"/>
+                  <text value=""/>
                 </properties>
               </component>
               <component id="1bfa1" class="javax.swing.JButton" binding="loginButton">
