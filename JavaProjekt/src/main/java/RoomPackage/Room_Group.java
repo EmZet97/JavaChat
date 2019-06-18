@@ -70,8 +70,13 @@ public class Room_Group implements Room {
     }
 
     @Override
-    public void SendMessage(String text) {
-        SQLConnector.SendMessage(roomID, GlobalVariables.userID, text);
+    public void SendMessage(final String text) {
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                SQLConnector.SendMessage(roomID, GlobalVariables.userID, text);
+            }});
+        t.start();
     }
 
     @Override

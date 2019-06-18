@@ -31,24 +31,23 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/GUI/MainPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2431">
-              <caret line="170" column="43" lean-forward="true" selection-start-line="170" selection-start-column="43" selection-end-line="170" selection-end-column="43" />
+            <state relative-caret-position="356">
+              <caret line="58" column="44" selection-start-line="58" selection-start-column="44" selection-end-line="58" selection-end-column="44" />
               <folding>
-                <element signature="e#1121#1127#0" expanded="true" />
-                <element signature="e#4754#4924#0" expanded="true" />
-                <element signature="e#4923#4924#0" expanded="true" />
-                <element signature="e#4814#4822#0" expanded="true" />
-                <element signature="e#6783#6791#0" expanded="true" />
-                <element signature="e#6708#6977#0" expanded="true" />
-                <element signature="e#6976#6977#0" expanded="true" />
-                <element signature="e#7679#9218#0" expanded="true" />
-                <element signature="e#9217#9218#0" expanded="true" />
+                <element signature="e#2676#3021#0" expanded="true" />
+                <element signature="e#3020#3021#0" expanded="true" />
+                <element signature="e#4665#4835#0" expanded="true" />
+                <element signature="e#4834#4835#0" expanded="true" />
+                <element signature="e#5114#5122#0" expanded="true" />
+                <element signature="e#6642#6650#0" expanded="true" />
+                <element signature="e#7538#9077#0" expanded="true" />
+                <element signature="e#9076#9077#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/GUI/MainPanel.form">
           <provider selected="true" editor-type-id="ui-designer" />
         </entry>
@@ -68,8 +67,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/RoomPackage/Room.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+            <state relative-caret-position="238">
+              <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -77,11 +76,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/SQL/SQLConnector.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="56" column="16" lean-forward="true" selection-start-line="56" selection-start-column="16" selection-end-line="56" selection-end-column="16" />
+            <state relative-caret-position="272">
+              <caret line="16" column="30" lean-forward="true" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -92,7 +91,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
+            <state relative-caret-position="357">
               <caret line="21" column="18" selection-start-line="21" selection-start-column="18" selection-end-line="29" selection-end-column="21" />
             </state>
           </provider>
@@ -116,22 +115,15 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk-12.0.1/lib/src.zip!/java.base/java/lang/Thread.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="13175">
-              <caret line="834" selection-start-line="834" selection-end-line="834" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/RoomPackage/Room_Group.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="969">
-              <caret line="73" selection-start-line="73" selection-end-line="73" />
+            <state relative-caret-position="390">
+              <caret line="78" column="18" selection-start-line="78" selection-start-column="18" selection-end-line="78" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1775#1776#0" expanded="true" />
+                <element signature="e#1724#1889#0" expanded="true" />
+                <element signature="e#1888#1889#0" expanded="true" />
+                <element signature="e#2026#2027#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -195,7 +187,6 @@
         <option value="$PROJECT_DIR$/src/main/java/Room/Room_PTP.java" />
         <option value="$PROJECT_DIR$/src/main/java/Messages/MessageManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/RoomPackage/Room.java" />
-        <option value="$PROJECT_DIR$/src/main/java/RoomPackage/Room_Group.java" />
         <option value="$PROJECT_DIR$/src/main/java/RoomPackage/Room_PTP.java" />
         <option value="$PROJECT_DIR$/src/test/java/RoomPackage/RoomCreatorTest.java" />
         <option value="$PROJECT_DIR$/.idea/modules.xml" />
@@ -206,8 +197,9 @@
         <option value="$PROJECT_DIR$/src/main/java/GUI/LoginPanel.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/SQL/SQLConnector.java" />
-        <option value="$PROJECT_DIR$/src/main/java/GUI/MainPanel.java" />
         <option value="$PROJECT_DIR$/src/main/java/GUI/LoginPanel.form" />
+        <option value="$PROJECT_DIR$/src/main/java/GUI/MainPanel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/RoomPackage/Room_Group.java" />
         <option value="$PROJECT_DIR$/src/main/java/GUI/MainPanel.form" />
       </list>
     </option>
@@ -320,6 +312,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
@@ -392,7 +385,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -401,7 +393,7 @@
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="321" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560697750164" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560698380967" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Arquillian JUnit4" value="" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
@@ -509,7 +501,8 @@
       <workItem from="1560282350580" duration="598000" />
       <workItem from="1560329255583" duration="3530000" />
       <workItem from="1560691515529" duration="356000" />
-      <workItem from="1560691903804" duration="6375000" />
+      <workItem from="1560691903804" duration="6466000" />
+      <workItem from="1560879257406" duration="1905000" />
     </task>
     <servers />
   </component>
@@ -540,7 +533,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76476000" />
+    <option name="totallyTimeSpent" value="78472000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -555,7 +548,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14978679" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15138593" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -782,38 +775,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-12.0.1/lib/src.zip!/java.base/java/lang/Thread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13175">
-          <caret line="834" selection-start-line="834" selection-end-line="834" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/RoomPackage/Room_Group.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="969">
-          <caret line="73" selection-start-line="73" selection-end-line="73" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1775#1776#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
+        <state relative-caret-position="357">
           <caret line="21" column="18" selection-start-line="21" selection-start-column="18" selection-end-line="29" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SQL/SQLConnector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="56" column="16" lean-forward="true" selection-start-line="56" selection-start-column="16" selection-end-line="56" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -827,33 +792,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/RoomPackage/Room.java">
+    <entry file="jar://C:/Program Files/Java/jdk-12.0.1/lib/src.zip!/java.base/java/lang/Thread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="577">
+          <caret line="834" selection-start-line="834" selection-end-line="834" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/GUI/MainPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2431">
-          <caret line="170" column="43" lean-forward="true" selection-start-line="170" selection-start-column="43" selection-end-line="170" selection-end-column="43" />
-          <folding>
-            <element signature="e#1121#1127#0" expanded="true" />
-            <element signature="e#4754#4924#0" expanded="true" />
-            <element signature="e#4923#4924#0" expanded="true" />
-            <element signature="e#4814#4822#0" expanded="true" />
-            <element signature="e#6783#6791#0" expanded="true" />
-            <element signature="e#6708#6977#0" expanded="true" />
-            <element signature="e#6976#6977#0" expanded="true" />
-            <element signature="e#7679#9218#0" expanded="true" />
-            <element signature="e#9217#9218#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/main/java/GUI/LoginPanel.form">
+      <provider selected="true" editor-type-id="ui-designer" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/GUI/LoginPanel.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -865,11 +812,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/GUI/LoginPanel.form">
-      <provider selected="true" editor-type-id="ui-designer" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/GUI/MainPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="58" column="44" selection-start-line="58" selection-start-column="44" selection-end-line="58" selection-end-column="44" />
+          <folding>
+            <element signature="e#2676#3021#0" expanded="true" />
+            <element signature="e#3020#3021#0" expanded="true" />
+            <element signature="e#4665#4835#0" expanded="true" />
+            <element signature="e#4834#4835#0" expanded="true" />
+            <element signature="e#5114#5122#0" expanded="true" />
+            <element signature="e#6642#6650#0" expanded="true" />
+            <element signature="e#7538#9077#0" expanded="true" />
+            <element signature="e#9076#9077#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/RoomPackage/Room.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/RoomPackage/Room_Group.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="78" column="18" selection-start-line="78" selection-start-column="18" selection-end-line="78" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1724#1889#0" expanded="true" />
+            <element signature="e#1888#1889#0" expanded="true" />
+            <element signature="e#2026#2027#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/GUI/MainPanel.form">
       <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SQL/SQLConnector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="30" lean-forward="true" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">

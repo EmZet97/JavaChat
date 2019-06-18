@@ -54,7 +54,9 @@ public class MainPanel extends JFrame {
                     //System.out.println(InputTextArea.getText());
                     //boolean sended = SQLConnector.SendMessage(GlobalVariables.activeRoomID, GlobalVariables.userID, InputTextArea.getText());
                     if(activeRoom!=null){
-                        activeRoom.SendMessage(InputTextArea.getText());
+                        String txt = InputTextArea.getText().replace("\n", "");
+                        if(txt != "")
+                            activeRoom.SendMessage(txt);
                     }
                     InputTextArea.setText("");
                 }
@@ -70,7 +72,8 @@ public class MainPanel extends JFrame {
                     //System.out.println("Enter Clicked");
                     if(activeRoom!=null){
                         String txt = InputTextArea.getText().replace("\n", "");
-                        activeRoom.SendMessage(txt);
+                        if(txt != "")
+                            activeRoom.SendMessage(txt);
                     }
                     InputTextArea.setText("");
                 }
@@ -145,7 +148,7 @@ public class MainPanel extends JFrame {
         List<String> RoomsNamesList = new ArrayList<String>();
 
 
-
+        rooms.clear();
         //Stworzenie fabryki obiektow RoomPackage
         RoomCreator roomCreator = new RoomCreator();
         for(int i = 0 ; i<res.resultList.size(); i++){
